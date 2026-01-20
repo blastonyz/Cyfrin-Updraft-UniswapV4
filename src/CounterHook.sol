@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.30;
+pragma solidity ^0.8.30;
 
 // Based off of BaseHook
 // https://github.com/Uniswap/v4-periphery/blob/main/src/utils/BaseHook.sol
@@ -149,7 +149,7 @@ contract CounterHook {
         uint256 amount0,
         uint256 amount1,
         bytes calldata hookData
-    ) external onlyPoolManager returns (bytes4) {
+    ) external view onlyPoolManager returns (bytes4) {
         revert HookNotImplemented();
     }
 
@@ -159,7 +159,7 @@ contract CounterHook {
         uint256 amount0,
         uint256 amount1,
         bytes calldata hookData
-    ) external onlyPoolManager returns (bytes4) {
+    ) external view onlyPoolManager returns (bytes4) {
         revert HookNotImplemented();
     }
 }
