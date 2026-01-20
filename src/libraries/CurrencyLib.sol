@@ -2,8 +2,11 @@
 pragma solidity 0.8.30;
 
 import {IERC20} from "openzeppelin/interfaces/IERC20.sol";
+import {SafeERC20} from "openzeppelin/token/ERC20/utils/SafeERC20.sol";
 
 library CurrencyLib {
+    using SafeERC20 for IERC20;
+    
     function transferIn(
         address currency,
         address src,
@@ -12,7 +15,7 @@ library CurrencyLib {
         if (currency == address(0)) {
             require(amount == msg.value, "msg.value != amount");
         } else {
-            IERC20(currency).transferFrom(src, address(this), amount);
+            IERC20(currency).safeTransferFrom(src, address(this), amount);
         }
     }
 
@@ -25,7 +28,7 @@ library CurrencyLib {
             (bool ok, ) = dst.call{value: amount}("");
             require(ok, "send ETH failed");
         } else {
-            IERC20(currency).transfer(dst, amount);
+            IERC20(currency).safeTransfer(dst, amount);
         }
     }
 
