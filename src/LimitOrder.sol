@@ -11,11 +11,7 @@ import {CurrencyLib} from "./libraries/CurrencyLib.sol";
 import {StateLibrary} from "uniswap-v4-core/libraries/StateLibrary.sol";
 import {PoolId, PoolIdLibrary} from "uniswap-v4-core/types/PoolId.sol";
 import {PoolKey} from "uniswap-v4-core/types/PoolKey.sol";
-
-import {
-    BalanceDelta,
-    BalanceDeltaLibrary
-} from "uniswap-v4-core/types/BalanceDelta.sol";
+import { BalanceDelta, BalanceDeltaLibrary } from "uniswap-v4-core/types/BalanceDelta.sol";
 import {TStore} from "./TStore.sol";
 
 contract LimitOrder is TStore {
